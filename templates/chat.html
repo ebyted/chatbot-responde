@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Chat</h1>
+<form method="POST">
+    <div class="mb-3">
+        <label for="user_input" class="form-label">Escribe tu mensaje:</label>
+        <input type="text" class="form-control" id="user_input" name="user_input" required>
+    </div>
+    <button type="submit" class="btn btn-success">Enviar</button>
+</form>
+
+{% if user_input %}
+    <hr>
+    <p><strong>Tú:</strong> {{ user_input }}</p>
+    <p><strong>Bot:</strong> {{ response }}</p>
+{% endif %}
+{% endblock %}
+    

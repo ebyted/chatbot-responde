@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Configuración de Respuestas</h1>
+
+<h3>Agregar, Eliminar o Modificar palabras clave</h3>
+<form method="POST">
+    <div class="mb-3">
+        <label for="palabra_clave" class="form-label">Palabra clave</label>
+        <input type="text" class="form-control" id="palabra_clave" name="palabra_clave" required>
+    </div>
+    <div class="mb-3">
+        <label for="respuesta" class="form-label">Respuesta</label>
+        <input type="text" class="form-control" id="respuesta" name="respuesta" required>
+    </div>
+    <button type="submit" name="add" class="btn btn-success">Agregar</button>
+    <button type="submit" name="update" class="btn btn-info">Modificar</button>
+    <button type="submit" name="delete" class="btn btn-danger">Eliminar</button>
+</form>
+
+<h3>Respuestas almacenadas</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Palabra clave</th>
+            <th>Respuesta</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in respuestas %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
